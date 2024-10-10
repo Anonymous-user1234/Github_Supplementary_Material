@@ -8,7 +8,7 @@ from datetime import datetime
 
 #####################################
 
-print("832-Trivium-version 3.0")
+print("832-Trivium-version 4.0")
 print("start")
 
 #####################################
@@ -99,7 +99,7 @@ def solve_cnf(cnf, xor_clause_s, assigns):
     for xor_clause, rhs in xor_clause_s:
         solver.add_xor_clause(xor_clause, rhs)
 
-    print("cnf: ", assigns)
+    print("cnf: ", [[x-1 if x>0 else x+1 for x in row] for row in assigns])
     for assumption in assigns:
         solver.add_clause(assumption)
 
@@ -119,8 +119,8 @@ def auto_solve(cnf, xor_clause_s, used_vars, inc_var, current_assigns=[]):
     
     if inc_var == []:
     	inc_var=copy.copy(used_vars)
-    print(inc_var)
-    print(current_assigns)
+    print([x-1 for x in inc_var])
+    print([[x-1 if x>0 else x+1 for x in row] for row in current_assigns])
     both_has_solutions = []
     last_both_has_solutions = []
 
@@ -132,12 +132,12 @@ def auto_solve(cnf, xor_clause_s, used_vars, inc_var, current_assigns=[]):
 
         print(datetime.now())
         print("round %d" % (len(current_assigns) + len(both_has_solutions)))
-        print("untested vars: ", inc_var)
-        print("to test var: %d" % to_test_var)
-        print("current_assigns: ", current_assigns, len(current_assigns))
-        print("both_has_solutions: ", both_has_solutions, len(both_has_solutions))
+        print("untested vars: ", [x-1 for x in inc_var])
+        print("to test var: %d" % (to_test_var-1))
+        print("current_assigns: ", [[x-1 if x>0 else x+1 for x in row] for row in current_assigns], len(current_assigns))
+        print("both_has_solutions: ", [x-1 for x in both_has_solutions], len(both_has_solutions))
       
-        print("testing k%d == 0" % to_test_var)
+        print("testing k%d == 0" % (to_test_var-1))
         flag_0 = solve_cnf(cnf, xor_clause_s, current_assigns + [[-to_test_var]])
 
         if not flag_0:
@@ -145,7 +145,7 @@ def auto_solve(cnf, xor_clause_s, used_vars, inc_var, current_assigns=[]):
             print("i jumped")
             print("round is done\n")
         else:
-            print("testing k%d == 1" % to_test_var)
+            print("testing k%d == 1" % (to_test_var-1))
             flag_1 = solve_cnf(cnf, xor_clause_s, current_assigns + [[to_test_var]])
 
             print("round is done\n")
@@ -282,12 +282,12 @@ if __name__ == "__main__":
         
         dir_init = "polynomials/polynomial-"
         break_num = 0
-        sol_val = [random.randint(0, 1) for _ in range(80)]
+        # sol_val = [random.randint(0, 1) for _ in range(80)]
 
         # preset value
-        # sol_val = []
-        # for ss in "f647f3cb0893708eca22":
-        #     sol_val += hex_to_bool(ss)
+        sol_val = []
+        for ss in "8e713bbb2de659c97d15":
+            sol_val += hex_to_bool(ss)
 
         print(sol_val)
         assert(len(sol_val) == 80)    
@@ -314,8 +314,8 @@ if __name__ == "__main__":
         os.system("mkdir log_resolve")
         with open(("log_resolve/%02d" %  len(both_has_solutions)) + "_" + output_name + ".log", "w") as f:
             f.write(str(sol_val) + "\n")
-            f.write(str(both_has_solutions) + "\n")
-            f.write(str(current_assigns) + "\n")
+            f.write(str([x-1 for x in both_has_solutions]) + "\n")
+            f.write(str([[x-1 if x>0 else x+1 for x in row] for row in current_assigns]) + "\n")
             f.write(str(round_num) + "\n")
             print(output_name + "_" + str(len(both_has_solutions)) + ".log")
 

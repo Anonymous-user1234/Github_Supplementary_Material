@@ -23,30 +23,30 @@ The polynomials were obtained in the Offline Phase of the practical attack.
 + ***"round 2"***: The index of the iteration.
 + ***"untested vars"***: The list of indices of the untested secret variables, sorted by the increasing order of the appearing times.
 + ***"to test var"***: The index of the variable to be tested.
-+ ***"current_assigns"***: The list of the assignments determined in previous iterations. Specifically, [[59], [-62]] means k59=1 and k62=0, which obtains from previous tests.
++ ***"current_assigns"***: The list of the assignments determined in previous iterations. Specifically, [[58], [-61]] means k58=1 and k61=0, which obtains from previous tests.
 + ***"both_has_solutions"***: The list of indices of variables whose values cannot be determined.
-+ ***"testing k62 == 0"***: Testing whether k62 == 0 leads to a contradiction.
-+ ***"cnf:  [[59], [60], [-62]] "***: Assigning {k59 == 1, k60 == 1, k62 = 0}.
-+ ***"Find solution~~~"***: Found a soltuion by assigning {k59 == 1, k60 == 1, k62 = 0}.
-+ ***"testing k62 == 1"***: Testing whether k62 == 1 leads to a contradiction.
-+ ***"cnf:  [[59], [60], [62]] "***: Assigning {k59 == 1, k60 == 1, k62 = 1}.
-+ ***"No solution!"***: Found a contradiciton by assigning {k59 == 1, k60 == 1, k62 = 1}, which implies k62 == 0 must hold.
++ ***"testing k61 == 0"***: Testing whether k61 == 0 leads to a contradiction.
++ ***"cnf:  [[58], [59], [-61]] "***: Assigning {k58 == 1, k59 == 1, k61 = 0}.
++ ***"Find solution~~~"***: Found a soltuion by assigning {k58 == 1, k59 == 1, k61 = 0}.
++ ***"testing k61 == 1"***: Testing whether k61 == 1 leads to a contradiction.
++ ***"cnf:  [[58], [59], [61]] "***: Assigning {k58 == 1, k59 == 1, k61 = 1}.
++ ***"No solution!"***: Found a contradiciton by assigning {k58 == 1, k59 == 1, k61 = 1}, which implies k61 == 0 must hold.
 
 ---------------------------------------
 ...\
 2024-10-08 04:36:19.673821\
 round 2 \
-untested vars:  [10, 8, 23, 6, 11, 21, 19, 9, 24, 7, 36, 5, 4, 12, 67, 42, 34, 32, 66, 80, 17, 31, 14, 51, 16, 41, 38, 15, 40, 39, 18, 55, 44, 2, 53, 1, 50, 76, 30, 56, 70, 3, 54, 13, 22, 29, 78, 57, 49, 68, 65, 20, 25, 43, 71, 52, 72, 28, 77, 74, 79, 27, 69, 46, 48, 73, 37, 26, 33, 64, 35, 47, 58, 45, 63, 75, 61] \
-to test var: 62\
-current_assigns:  [[59], [60]] 2 \
+untested vars:  [9, 7, 22, 5, 10, 20, 18, 8, 23, 6, 35, 4, 3, 11, 66, 41, 33, 31, 65, 79, 16, 30, 13, 50, 15, 40, 37, 14, 39, 38, 17, 54, 43, 1, 52, 0, 49, 75, 29, 55, 69, 53, 2, 12, 21, 77, 28, 56, 48, 67, 64, 19, 24, 42, 70, 51, 71, 27, 76, 73, 78, 26, 68, 45, 47, 72, 36, 25, 32, 63, 34, 46, 57, 44, 62, 74, 60]\
+to test var: 61\
+current_assigns:  [[58], [59]] 2 \
 both_has_solutions:  [] 0\
-testing k62 == 0\
-cnf:  [[59], [60], [-62]] 
+testing k61 == 0\
+cnf:  [[58], [59], [-61]] 
 
 Find solution~~~
 
-testing k62 == 1\
-cnf:  [[59], [60], [62]]
+testing k61 == 1\
+cnf:  [[58], [59], [61]]
 
 No solution!
 
