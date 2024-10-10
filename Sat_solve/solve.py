@@ -99,7 +99,7 @@ def solve_cnf(cnf, xor_clause_s, assigns):
     for xor_clause, rhs in xor_clause_s:
         solver.add_xor_clause(xor_clause, rhs)
 
-    print("cnf: ", [[x-1 if x>0 else x+1 for x in row] for row in assigns])
+    print("cnf: ", ["k%d=1" % (row[0]-1) if row[0]>0 else "k%d=0" % (-(row[0]+1)) for row in assigns])
     for assumption in assigns:
         solver.add_clause(assumption)
 
@@ -133,10 +133,10 @@ def auto_solve(cnf, xor_clause_s, used_vars, inc_var, current_assigns=[]):
         print(datetime.now())
         print("round %d" % (len(current_assigns) + len(both_has_solutions)))
         print("untested vars: ", [x-1 for x in inc_var])
-        print("to test var: %d" % (to_test_var-1))
-        print("current_assigns: ", [[x-1 if x>0 else x+1 for x in row] for row in current_assigns], len(current_assigns))
+        print("to test var: %d" % (to_test_var-1))        
+        print("current_assigns: ", ["k%d=1" % (row[0]-1) if row[0]>0 else "k%d=0" % (-(row[0]+1)) for row in assigns], len(current_assigns))
         print("both_has_solutions: ", [x-1 for x in both_has_solutions], len(both_has_solutions))
-      
+
         print("testing k%d == 0" % (to_test_var-1))
         flag_0 = solve_cnf(cnf, xor_clause_s, current_assigns + [[-to_test_var]])
 
