@@ -74,8 +74,8 @@ round 3
         + ***line87~89***: Choose the secret key.
 
 ### ./Statistics_spolys
-+ ***sp_var_monomial.py***: Statistics of "the number of monomials involving a given variable in an equation"
-    + ***line3***: Choose the key variable k0~k79
++ ***sp_var_monomial.py***: Statistics of "the number of monomials involving a given variable in an equation".
+    + ***line3***: Choose the key variable k0~k79.
 + ***sp_degree.py***: Statistics of the degrees of the polynomials.
 + ***sp_monomial.py***: Statistics of the monomial numbers of the polynomials.
 + ***vars_frequency_832.py***: Statistics of the appearing times of the secret variables.
