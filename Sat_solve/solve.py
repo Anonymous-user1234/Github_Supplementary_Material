@@ -8,7 +8,7 @@ from datetime import datetime
 
 #####################################
 
-print("832-Trivium-version 4.0")
+print("832-Trivium-version 5.0")
 print("start")
 
 #####################################
@@ -134,7 +134,7 @@ def auto_solve(cnf, xor_clause_s, used_vars, inc_var, current_assigns=[]):
         print("round %d" % (len(current_assigns) + len(both_has_solutions)))
         print("untested vars: ", [x-1 for x in inc_var])
         print("to test var: %d" % (to_test_var-1))        
-        print("current_assigns: ", ["k%d=1" % (row[0]-1) if row[0]>0 else "k%d=0" % (-(row[0]+1)) for row in assigns], len(current_assigns))
+        print("current_assigns: ", ["k%d=1" % (row[0]-1) if row[0]>0 else "k%d=0" % (-(row[0]+1)) for row in current_assigns], len(current_assigns))
         print("both_has_solutions: ", [x-1 for x in both_has_solutions], len(both_has_solutions))
 
         print("testing k%d == 0" % (to_test_var-1))
