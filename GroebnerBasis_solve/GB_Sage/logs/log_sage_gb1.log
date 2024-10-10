@@ -17279,7 +17279,7 @@ Cython backtrace
 #159 0x0000564327734070 in _start ()
 
 [Inferior 1 (process 791676) detached]
-27	../sysdeps/unix/sysv/linux/wait4.c: 没有那个文件或目录.
+27	../sysdeps/unix/sysv/linux/wait4.c: .
 Saved trace to /home/user/.sage/crash_logs/crash_w97lftl9.log
 ------------------------------------------------------------------------
 Unhandled SIGABRT: An abort() occurred.
