@@ -51,10 +51,12 @@ cnf:  [[59], [60], [62]]
 No solution!
 
 round is done
-\
+
 2024-10-08 04:42:57.665555\
-round 3\
+round 3
+
 ...
+
 ------------------------------
 
 + ***polynomials***:  A folder storing a series of polynomial sets.
